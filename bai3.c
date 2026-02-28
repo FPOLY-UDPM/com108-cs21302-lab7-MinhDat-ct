@@ -9,4 +9,28 @@
 //  Output: Thứ tự các chuỗi đã được sắp xếp  
 
 // VIẾT CODE Ở ĐÂY
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char str[5][100];
+    printf("Nhap vao 5 chuoi:\n");
+    for(int i=0; i<5; i++) {
+        gets(str[i]);
+    }
+    for(int i=0; i<4; i++) {
+        for(int j=i+1; j<5; j++) {
+            if(strcmp(str[i], str[j])>0) {
+                char temp[100];
+                strcpy(temp, str[i]);
+                strcpy(str[i], str[j]);
+                strcpy(str[j], temp);
+            }
+        }
+    }
+    printf("Thu tu cac chuoi sau khi sap xep:\n");
+    for(int i=0; i<5; i++) {
+        printf("%s\n", str[i]);
+    }
+    return 0;
+}
 
